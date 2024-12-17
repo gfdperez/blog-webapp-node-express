@@ -1,8 +1,7 @@
 <%- include("partials/header.ejs") %>
+<%- include("partials/navigationBar.ejs") %>
 
 <main>
-    <a href="/">Home</a>
-    <a href="/blogEntry/add">Add New Entry</a>
 
     <% if (locals.blog.list.length >= 1) { %>
         <% for (let i = 0; i < blog.list.length; i++) { %>
