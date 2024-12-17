@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+
+<a href="/">Home</a>
+<a href="/blogEntry/add">Add New Entry</a>
+
+<main>
+    <% if (locals.showBlog) { %>
+        <div><%= showBlog.title %></div>
+        <div><%= showBlog.author %></div>
+        <div><%= showBlog.date %></div>
+        <div><%= showBlog.content %></div>
+    <% } %>
+
+</main>
+
+<%- include("partials/footer.ejs") %>
