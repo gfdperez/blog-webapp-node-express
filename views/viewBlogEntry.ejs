@@ -2,12 +2,18 @@
 <%- include("partials/navigationBar.ejs") %>
 
 <main>
-    <% if (locals.showBlog) { %>
-        <div><%= showBlog.title %></div>
-        <div><%= showBlog.author %></div>
-        <div><%= showBlog.date %></div>
-        <div><%= showBlog.content %></div>
-    <% } %>
+    <div class="container-xl mt-4 ">
+        <div class="w-75 mx-auto">
+            <% if (locals.showBlog) { %>
+                <h1><%= showBlog.title %></h1>
+                <h5><i>By: <%= showBlog.author %>    |    Date Created: <%= showBlog.date %></i></h5>
+                <div class="lh-base fs-4 mt-4"><%= showBlog.content %></div>
+            <% } %>
+            <a href="/" class="btn btn-primary mt-5">Go Back to Home Page</a>
+        </div>
+        
+    </div>
+    
 
 </main>
 

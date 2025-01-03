@@ -46,7 +46,7 @@ app.get("/blogEntry/add", (req, res) => {
 });
 
 app.post("/blogEntry/add", (req, res) => {
-    let newEntry = new blog.EntryClass(Date.now(), req.body.author, req.body.title, req.body.content, dateTime(true) + " | " + dateTime()); //Parameters: Number, Author, Content, Date
+    let newEntry = new blog.EntryClass(Date.now(), req.body.author, req.body.title, req.body.content, dateTime()); //Parameters: Number, Author, Content, Date
     blog.list.push(newEntry);
     console.log(blog.list);
 

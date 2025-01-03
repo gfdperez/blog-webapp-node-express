@@ -2,14 +2,18 @@
 <%- include("partials/navigationBar.ejs") %>
 
 <!-- TODO: Center the whole website -->
-<div class="container-fluid mx-auto"> 
+<div class="container-xl pt-4"> 
     <main>
         <form action="/blogEntry/edit" method="post">
             <input type="hidden" name="id" value="<%= editBlog.id %>">
-            <input type="text" name="author" placeholder="Author's Name" value="<%= editBlog.author %>"><br>
-            <input type="text" name="title" placeholder="Blog Post Title" value="<%= editBlog.title %>"><br>
-            <textarea type="text" name="content" placeholder="Write content here..." rows="20" cols="100"><%= editBlog.content %></textarea><br>
-            <input type="submit" value="Edit">
+            <input type="text" name="author" placeholder="Author's Name" class="form-control" value="<%= editBlog.author %>"><br>
+            <input type="text" name="title" placeholder="Blog Post Title" class="form-control" value="<%= editBlog.title %>"><br>
+            <textarea type="text" name="content" placeholder="Write content here..." class="form-control" rows="20" cols="100"><%= editBlog.content %></textarea><br>
+            <div class="text-end">
+                <input type="submit" value="Edit" class="btn btn-primary">
+                <a href="/" class="btn btn-secondary">Cancel</a>
+            </div>
+            
         </form>
     </main>
 </div>

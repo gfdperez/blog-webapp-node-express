@@ -2,12 +2,18 @@
 <%- include("partials/navigationBar.ejs") %>
 
 <main>
-    <form action="/blogEntry/add" method="post">
-        <input type="text" name="author" placeholder="Author's Name"><br>
-        <input type="text" name="title" placeholder="Blog Post Title"><br>
-        <textarea type="text" name="content" placeholder="Write content here..." rows="20" cols="100"></textarea><br>
-        <input type="submit" value="Add">
-    </form>
+    <div class="container-xl pt-4">
+        <form action="/blogEntry/add" method="post">
+            <input type="text" name="author" placeholder="Author's Name" class="form-control"><br>
+            <input type="text" name="title" placeholder="Blog Post Title" class="form-control"><br>
+            <textarea type="text" name="content" placeholder="Write content here..." class="form-control" rows="20" cols="100"></textarea><br>
+            <div class="text-end">
+                <input type="submit" class="btn btn-primary" value="Add">
+                <a href="/" class="btn btn-secondary">Cancel</a>
+            </div>
+            
+        </form>
+    </div>
 </main>
 
 <%- include("partials/footer.ejs") %>

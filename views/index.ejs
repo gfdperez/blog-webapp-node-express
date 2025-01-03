@@ -2,24 +2,35 @@
 <%- include("partials/navigationBar.ejs") %>
 
 <main>
-
-    <% if (locals.blog.list.length >= 1) { %>
-        <% for (let i = 0; i < blog.list.length; i++) { %>
-            <div><%= blog.list[i].author %></div>
-            <div><%= blog.list[i].date %></div>
-            <div><%= blog.list[i].content %></div>
-            <div><a href="/blogEntry/details/<%= blog.list[i].id %>" class="btn btn-primary">View</a></div>
-            <div><a href="/blogEntry/edit/<%= blog.list[i].id %>" class="btn btn-secondary">Edit</a></div>
-            <div>
-                <form action="/blogEntry/delete" method="post">
-                    <input type= "hidden" name="id" value="<%= blog.list[i].id %>">
-                    <button class="btn btn-tertiary">Delete</button>
-                </form>
+    <div class="container-xl mt-4 ">
+        <% if (locals.blog.list.length >= 1) { %>
+            <% for (let i = 0; i < blog.list.length; i++) { %>
+                <div class="card w-75 mx-auto mb-4">
+                    <h5 class="card-header"><%= blog.list[i].title %></h5>
+                    <div class="card-body">
+                        <h6 class="card-title fw-medium"><i>By: <%= blog.list[i].author %></i></h6>
+                        <h6 class="card-text fw-medium"><i>Date Created: <%= blog.list[i].date %></i></h6>
+                        <div class="card-text"><%= blog.list[i].content %></div>
+                    </div>
+                    
+                    <div class="card-footer d-inline-flex p-2">
+                        <a href="/blogEntry/details/<%= blog.list[i].id %>" class="btn btn-primary me-1">View</a>
+                        <a href="/blogEntry/edit/<%= blog.list[i].id %>" class="btn btn-light me-1">Edit</a>
+                        <form action="/blogEntry/delete" method="post" class="ms-auto">
+                            <input type= "hidden" name="id" value="<%= blog.list[i].id %>">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+            <% } %>
+        <% } else { %>
+            <div class="text-center">
+                <a href="/blogEntry/add" class="btn btn-primary w-50">Click Here to Add a Blog Entry</a>
             </div>
         <% } %>
-    <% } else { %>
-        <div>no content</div>
-    <% } %>
+    </div>
 </main>
 
 <%- include("partials/footer.ejs") %>
